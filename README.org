@@ -1,0 +1,107 @@
+#+TITLE: TIMU-MACOS-THEME
+#+AUTHOR: Aimé Bertrand
+#+DATE: [2023-01-03 Sun]
+#+LANGUAGE: en
+#+OPTIONS: d:t toc:nil num:nil
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://macowners.club/css/gtd.css" />
+#+KEYWORDS: theme rouge red dark
+#+STARTUP: indent showall
+
+
+Color theme inspired by the macOS UI.
+
+* Illustration
+#+html: <p align="center"><img src="img/timu-macos.png" width="100%"/></p>
+
+* Installation
+** Manual installation
+1. Download the [[https://gitlab.com/aimebertrand/timu-macos-theme/-/raw/main/timu-macos-theme.el?inline=false][=timu-macos-theme.el=]] file and add it to your =custom-load-path=.
+2. In your =~/.emacs.d/init.el= or =~/.emacs=:
+
+#+begin_src emacs-lisp
+  (load-theme 'timu-macos t)
+#+end_src
+
+** From [[https://melpa.org/#/timu-macos-theme][Melpa]] with ~package.el~
+1. =M-x package-install RET timu-macos-theme RET=.
+2. In your =~/.emacs.d/init.el= or =~/.emacs=:
+
+#+begin_src emacs-lisp
+  (load-theme 'timu-macos t)
+#+end_src
+
+** With [[https://github.com/jwiegley/use-package][use-package]]
+#+begin_src emacs-lisp
+  (use-package timu-macos-theme
+    :ensure t
+    :config
+    (load-theme 'timu-macos t))
+#+end_src
+
+* Configuration
+** Scaling
+You can now scale some faces (in =org-mode= for now):
+
+- ~org-document-info~
+- ~org-document-title~
+- ~org-level-1~
+- ~org-level-2~
+- ~org-level-3~
+
+More to follow in the future.
+
+By default the scaling is turned off. To setup the scaling add the following to your =~/.emacs.d/init.el= or =~/.emacs=:
+
+*** Default scaling
+This will turn on default values of scaling in the theme.
+
+#+begin_src emacs-lisp
+  (customize-set-variable 'timu-macos-scale-org-document-title t)
+  (customize-set-variable 'timu-macos-scale-org-document-info t)
+  (customize-set-variable 'timu-macos-scale-org-level-1 t)
+  (customize-set-variable 'timu-macos-scale-org-level-2 t)
+  (customize-set-variable 'timu-macos-scale-org-level-3 t)
+#+end_src
+
+*** Custom scaling
+You can choose your own scaling values as well. The following is a somewhat exaggerated example.
+
+#+begin_src emacs-lisp
+  (customize-set-variable 'timu-macos-scale-org-document-title 1.8)
+  (customize-set-variable 'timu-macos-scale-org-document-info 1.4)
+  (customize-set-variable 'timu-macos-scale-org-level-1 1.8)
+  (customize-set-variable 'timu-macos-scale-org-level-2 1.4)
+  (customize-set-variable 'timu-macos-scale-org-level-3 1.2)
+#+end_src
+
+** "Intense" colors for org-mode
+To emphasize some elements in org-mode. You can set a variable to make some faces more "intense".
+
+#+html: <p align="center"><img src="img/timu-macos-intense.png" width="100%"/></p>
+
+By default the intense colors are turned off. To turn this on add the following to your =~/.emacs.d/init.el= or =~/.emacs=:
+
+#+begin_src emacs-lisp
+  (customize-set-variable 'timu-macos-org-intense-colors t)
+#+end_src
+
+** Border for the mode-line
+You can set a variable to add a border to the mode-line.
+
+By default the border is turned off. To turn this on add the following to your =~/.emacs.d/init.el= or =~/.emacs=:
+
+#+begin_src emacs-lisp
+  (customize-set-variable 'timu-macos-mode-line-border t)
+#+end_src
+
+** Utility functions
+*** Toggle between intense and non intense colors for `org-mode'
+
+M-x =timu-macos-toggle-org-colors-intensity= RET.
+
+*** Toggle between borders and no borders for the `mode-line'
+
+M-x =timu-macos-toggle-mode-line-border= RET.
+
+* License
+MIT License
