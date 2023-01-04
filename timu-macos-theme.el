@@ -6,7 +6,7 @@
 ;; Maintainer: Aimé Bertrand <aime.bertrand@macowners.club>
 ;; Created: 2023-01-03
 ;; Keywords: faces themes
-;; Version: 1.0
+;; Version: 1.1
 ;; Package-Requires: ((emacs "27.1"))
 ;; Homepage: https://gitlab.com/aimebertrand/timu-macos-theme
 
@@ -98,7 +98,14 @@
 ;;     To turn this on add the following to your =~/.emacs.d/init.el= or =~/.emacs=:
 ;;       (customize-set-variable 'timu-macos-org-intense-colors t)
 ;;
-;;   C. Border for the `mode-line'
+;;   C. Muted colors for the theme
+;;     You can set muted colors for the theme.
+;;
+;;     By default muted colors are turned off.
+;;     To turn this on add the following to your =~/.emacs.d/init.el= or =~/.emacs=:
+;;       (customize-set-variable 'timu-macos-muted-colors t)
+;;
+;;   D. Border for the `mode-line'
 ;;     You can set a variable to add a border to the `mode-line'.
 ;;
 ;;     By default the border is turned off.
@@ -294,6 +301,11 @@ BACKGROUND-COLOR changes the `background' color."
   (if (eq t timu-macos-org-intense-colors)
       (list :overline overline-color :background background-color)))
 
+(defcustom timu-macos-muted-colors nil
+  "Variable to set muted colors for the theme."
+  :type 'boolean
+  :group 'timu-macos-theme)
+
 (defcustom timu-macos-mode-line-border nil
   "Variable to control the border of `mode-line'.
 With a value of t the mode-line has a border."
@@ -352,20 +364,21 @@ Sourced other themes to get information about font faces for packages.")
       (fg         "#ffffff")
       (fg-other   "#dedede")
 
-      (grey       "#8c8c8c")
-      (red        "#ec5f5e")
-      (darkred    "#913a29")
-      (orange     "#e8883a")
-      (green      "#78b856")
-      (blue       "#50a5eb")
-      (magenta    "#e45c9c")
-      (teal       "#91f3e7")
-      (yellow     "#f6c844")
-      (darkblue   "#3478f6")
-      (purple     "#9b54a3")
-      (cyan       "#88c0d0")
-      (lightcyan  "#46d9ff")
-      (darkcyan   "#5297a5")
+      (grey      (if timu-macos-muted-colors "#D2D2D2" "#8c8c8c"))
+      (red       (if timu-macos-muted-colors "#FFA5A4" "#ec5f5e"))
+      (darkred   (if timu-macos-muted-colors "#D7806F" "#913a29"))
+      (orange    (if timu-macos-muted-colors "#FFCE80" "#e8883a"))
+      (green     (if timu-macos-muted-colors "#BEFE9C" "#78b856"))
+      (blue      (if timu-macos-muted-colors "#96EBFF" "#50a5eb"))
+      (magenta   (if timu-macos-muted-colors "#FFA2E2" "#e45c9c"))
+      (teal      (if timu-macos-muted-colors "#D7FFFF" "#91f3e7"))
+      (yellow    (if timu-macos-muted-colors "#FFFF8A" "#f6c844"))
+      (darkblue  (if timu-macos-muted-colors "#7ABEFF" "#3478f6"))
+      (purple    (if timu-macos-muted-colors "#E19AE9" "#9b54a3"))
+      (cyan      (if timu-macos-muted-colors "#CEFFFF" "#88c0d0"))
+      (lightcyan (if timu-macos-muted-colors "#8CFFFF" "#46d9ff"))
+      (darkcyan  (if timu-macos-muted-colors "#98DDEB" "#5297a5"))
+
       (black      "#000000")
       (white      "#ffffff"))
 

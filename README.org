@@ -85,6 +85,17 @@ By default the intense colors are turned off. To turn this on add the following 
   (customize-set-variable 'timu-macos-org-intense-colors t)
 #+end_src
 
+** Muted colors for the theme
+You can set muted colors for the theme.
+
+#+html: <p align="center"><img src="img/timu-macos-muted.png" width="100%"/></p>
+
+By default muted colors are turned off. To turn this on add the following to your =~/.emacs.d/init.el= or =~/.emacs=:
+
+#+begin_src emacs-lisp
+  (customize-set-variable 'timu-macos-muted-colors t)
+#+end_src
+
 ** Border for the mode-line
 You can set a variable to add a border to the mode-line.
 
