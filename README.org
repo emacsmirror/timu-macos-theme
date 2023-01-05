@@ -39,6 +39,13 @@ Color theme inspired by the macOS UI.
 #+end_src
 
 * Configuration
+** Dark and light fravour
+By default the theme is =dark=. To setup the =light= flavour add the following to your =~/.emacs.d/init.el= or =~/.emacs=:
+
+#+begin_src emacs-lisp
+  (customize-set-variable 'timu-macos-flavour "light")
+#+end_src
+
 ** Scaling
 You can now scale some faces (in =org-mode= for now):
 
@@ -86,7 +93,7 @@ By default the intense colors are turned off. To turn this on add the following 
 #+end_src
 
 ** Muted colors for the theme
-You can set muted colors for the theme.
+You can set muted colors for the dark flavour of the theme.
 
 #+html: <p align="center"><img src="img/timu-macos-muted.png" width="100%"/></p>
 
