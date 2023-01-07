@@ -124,10 +124,13 @@
 ;;       (customize-set-variable 'timu-macos-mode-line-border t)
 ;;
 ;; III. Utility functions
-;;   A. Toggle between intense and non intense colors for `org-mode'
+;;   A. Toggle dark and light flavour of the theme
+;;       M-x timu-macos-toggle-dark-light RET.
+;;
+;;   B. Toggle between intense and non intense colors for `org-mode'
 ;;       M-x timu-macos-toggle-org-colors-intensity RET.
 ;;
-;;   B. Toggle between borders and no borders for the `mode-line'
+;;   C. Toggle between borders and no borders for the `mode-line'
 ;;       M-x timu-macos-toggle-mode-line-border RET.
 
 
@@ -340,6 +343,15 @@ BOXCOLOR supplies the border color."
 BOXCOLOR supplies the border color."
   (if (eq t timu-macos-mode-line-border)
         (list :box boxcolor)))
+
+;;;###autoload
+(defun timu-macos-toggle-dark-light ()
+  "Toggle between \"dark\" and \"light\" `timu-macos-flavour'."
+  (interactive)
+  (if (equal "dark" timu-macos-flavour)
+      (customize-set-variable 'timu-macos-flavour "light")
+    (customize-set-variable 'timu-macos-flavour "dark"))
+  (load-theme (car custom-enabled-themes) t))
 
 ;;;###autoload
 (defun timu-macos-toggle-org-colors-intensity ()

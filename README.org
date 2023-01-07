@@ -113,6 +113,10 @@ By default the border is turned off. To turn this on add the following to your =
 #+end_src
 
 ** Utility functions
+*** Toggle dark and light flavour of the theme
+
+M-x =timu-macos-toggle-dark-light= RET.
+
 *** Toggle between intense and non intense colors for `org-mode'
 
 M-x =timu-macos-toggle-org-colors-intensity= RET.
