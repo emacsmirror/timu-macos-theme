@@ -11,7 +11,8 @@
 Color theme inspired by the macOS UI.
 
 * Illustration
-#+html: <p align="center"><img src="img/timu-macos.png" width="100%"/></p>
+#+html: <p align="center"><img src="img/timu-macos-theme-darker-1.png" width="100%"/></p>
+#+html: <p align="center"><img src="img/timu-macos-theme-lighter-1.png" width="100%"/></p>
 
 * Installation
 ** Manual installation
@@ -85,6 +86,7 @@ You can choose your own scaling values as well. The following is a somewhat exag
 To emphasize some elements in org-mode. You can set a variable to make some faces more "intense".
 
 #+html: <p align="center"><img src="img/timu-macos-intense.png" width="100%"/></p>
+#+html: <p align="center"><img src="img/timu-macos-intense-light.png" width="100%"/></p>
 
 By default the intense colors are turned off. To turn this on add the following to your =~/.emacs.d/init.el= or =~/.emacs=:
 
