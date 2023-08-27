@@ -358,9 +358,19 @@ BOXCOLOR supplies the border color."
   "Toggle between intense and non intense colors for `org-mode'.
 Customize `timu-macos-org-intense-colors' the to achieve this."
   (interactive)
-  (if (eq t timu-macos-org-intense-colors)
+  (if timu-macos-org-intense-colors
       (customize-set-variable 'timu-macos-org-intense-colors nil)
     (customize-set-variable 'timu-macos-org-intense-colors t))
+  (load-theme (car custom-enabled-themes) t))
+
+;;;###autoload
+(defun timu-macos-toggle-muted-colors ()
+  "Toggle between muted and unmuted colors.
+Customize `timu-macos-muted-colors' the to achieve this."
+  (interactive)
+  (if timu-macos-muted-colors
+      (customize-set-variable 'timu-macos-muted-colors nil)
+    (customize-set-variable 'timu-macos-muted-colors t))
   (load-theme (car custom-enabled-themes) t))
 
 ;;;###autoload
@@ -368,7 +378,7 @@ Customize `timu-macos-org-intense-colors' the to achieve this."
   "Toggle between borders and no borders for the `mode-line'.
 Customize `timu-macos-mode-line-border' the to achieve this."
   (interactive)
-  (if (eq t timu-macos-mode-line-border)
+  (if timu-macos-mode-line-border
       (customize-set-variable 'timu-macos-mode-line-border nil)
     (customize-set-variable 'timu-macos-mode-line-border t))
   (load-theme (car custom-enabled-themes) t))
