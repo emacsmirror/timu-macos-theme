@@ -1943,15 +1943,15 @@ Sourced other themes to get information about font faces for packages.")
 
 ;;;; vterm - dark
    `(vterm ((,class (:foreground ,fg))))
-   `(vterm-color-black ((,class (:background ,macos0 :foreground ,macos0))))
-   `(vterm-color-blue ((,class (:background ,purple :foreground ,purple))))
-   `(vterm-color-cyan ((,class (:background ,darkblue :foreground ,darkblue))))
-   `(vterm-color-default ((,class (:foreground ,fg))))
+   `(vterm-color-black ((,class (:background ,black :foreground ,black))))
+   `(vterm-color-blue ((,class (:background ,blue :foreground ,blue))))
+   `(vterm-color-cyan ((,class (:background ,cyan :foreground ,cyan))))
+   `(vterm-color-default ((,class (:background ,fg :foreground ,fg))))
    `(vterm-color-green ((,class (:background ,green :foreground ,green))))
    `(vterm-color-magenta ((,class (:background ,magenta :foreground ,magenta))))
-   `(vterm-color-purple ((,class (:background ,teal :foreground ,teal))))
+   `(vterm-color-purple ((,class (:background ,purple :foreground ,purple))))
    `(vterm-color-red ((,class (:background ,red :foreground ,red))))
-   `(vterm-color-white ((,class (:background ,macos8 :foreground ,macos8))))
+   `(vterm-color-white ((,class (:background ,white :foreground ,white))))
    `(vterm-color-yellow ((,class (:background ,yellow :foreground ,yellow))))
 
 ;;;; web-mode - dark
@@ -3590,15 +3590,15 @@ Sourced other themes to get information about font faces for packages.")
 
 ;;;; vterm - light
    `(vterm ((,class (:foreground ,fg))))
-   `(vterm-color-black ((,class (:background ,macos0 :foreground ,macos0))))
-   `(vterm-color-blue ((,class (:background ,purple :foreground ,purple))))
-   `(vterm-color-cyan ((,class (:background ,darkblue :foreground ,darkblue))))
-   `(vterm-color-default ((,class (:foreground ,fg))))
+   `(vterm-color-black ((,class (:background ,black :foreground ,black))))
+   `(vterm-color-blue ((,class (:background ,blue :foreground ,blue))))
+   `(vterm-color-cyan ((,class (:background ,cyan :foreground ,cyan))))
+   `(vterm-color-default ((,class (:background ,fg :foreground ,fg))))
    `(vterm-color-green ((,class (:background ,green :foreground ,green))))
    `(vterm-color-magenta ((,class (:background ,magenta :foreground ,magenta))))
-   `(vterm-color-purple ((,class (:background ,teal :foreground ,teal))))
+   `(vterm-color-purple ((,class (:background ,purple :foreground ,purple))))
    `(vterm-color-red ((,class (:background ,red :foreground ,red))))
-   `(vterm-color-white ((,class (:background ,macos8 :foreground ,macos8))))
+   `(vterm-color-white ((,class (:background ,white :foreground ,white))))
    `(vterm-color-yellow ((,class (:background ,yellow :foreground ,yellow))))
 
 ;;;; web-mode - light
