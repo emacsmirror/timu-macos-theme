@@ -1450,11 +1450,11 @@ Sourced other themes to get information about font faces for packages.")
    `(mmm-special-submode-face ((,class (:background ,green))))
 
 ;;;; mode-line - dark
-   `(mode-line ((,class (,@(timu-macos-set-mode-line-active-border blue) :background ,bg-other :foreground ,fg :distant-foreground ,bg))))
+   `(mode-line ((,class (,@(timu-macos-set-mode-line-active-border blue) :background ,bg-org :foreground ,fg :distant-foreground ,bg))))
    `(mode-line-buffer-id ((,class (:weight bold))))
    `(mode-line-emphasis ((,class (:foreground ,magenta :weight bold :underline ,darkcyan))))
    `(mode-line-highlight ((,class (:foreground ,magenta :weight bold :underline ,darkcyan))))
-   `(mode-line-inactive ((,class (,@(timu-macos-set-mode-line-inactive-border macos4) :background ,bg-other :foreground ,macos4 :distant-foreground ,macos4))))
+   `(mode-line-inactive ((,class (,@(timu-macos-set-mode-line-inactive-border macos4) :background ,bg-org :foreground ,macos4 :distant-foreground ,macos4))))
 
 ;;;; mu4e - dark
    `(mu4e-forwarded-face ((,class (:foreground ,purple))))
