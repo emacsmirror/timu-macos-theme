@@ -688,6 +688,9 @@ Sourced other themes to get information about font faces for packages.")
    `(circe-prompt-face ((,class (:weight bold :foreground ,blue))))
    `(circe-server-face ((,class (:foreground ,macos5))))
 
+;;;; column-enforce-mode - dark
+   `(column-enforce-face ((,class (:foreground ,yellow :underline t))))
+
 ;;;; company - dark
    `(company-preview ((,class (:background ,bg-other :foreground ,macos5))))
    `(company-preview-common ((,class (:background ,macos3 :foreground ,cyan))))
@@ -2334,6 +2337,9 @@ Sourced other themes to get information about font faces for packages.")
    `(circe-my-message-face ((,class (:weight bold))))
    `(circe-prompt-face ((,class (:weight bold :foreground ,blue))))
    `(circe-server-face ((,class (:foreground ,macos5))))
+
+;;;; column-enforce-mode - light
+   `(column-enforce-face ((,class (:foreground ,red :underline t))))
 
 ;;;; company - light
    `(company-preview ((,class (:background ,bg-other :foreground ,macos5))))
