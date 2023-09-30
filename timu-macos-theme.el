@@ -466,7 +466,7 @@ Sourced other themes to get information about font faces for packages.")
    `(match ((,class (:foreground ,green :background ,macos0 :weight bold))))
    `(minibuffer-prompt ((,class (:foreground ,blue))))
    `(nobreak-space ((,class (:background ,bg :foreground ,fg))))
-   `(region ((,class (:background ,grey :foreground nil :distant-foreground ,bg :extend t))))
+   `(region ((,class (:background ,grey :distant-foreground ,bg :extend t))))
    `(secondary-selection ((,class (:background ,grey :extend t))))
    `(shadow ((,class (:foreground ,macos5))))
    `(success ((,class (:foreground ,green))))
@@ -655,15 +655,14 @@ Sourced other themes to get information about font faces for packages.")
    `(cfw:face-disable ((,class (:foreground ,grey))))
    `(cfw:face-grid ((,class (:foreground ,bg))))
    `(cfw:face-header ((,class (:foreground ,purple :weight bold))))
-   `(cfw:face-holiday ((,class (:foreground nil :background ,bg-other :weight bold))))
+   `(cfw:face-holiday ((,class (:background ,bg-other :weight bold))))
    `(cfw:face-periods ((,class (:foreground ,yellow))))
    `(cfw:face-saturday ((,class (:foreground ,red :weight bold))))
    `(cfw:face-select ((,class (:background ,grey))))
    `(cfw:face-sunday ((,class (:foreground ,red :weight bold))))
    `(cfw:face-title ((,class (:foreground ,purple :weight bold :height 2.0))))
-   `(cfw:face-today ((,class (:foreground nil :background nil :weight bold))))
+   `(cfw:face-today ((,class (:weight bold))))
    `(cfw:face-today-title ((,class (:foreground ,bg :background ,purple :weight bold))))
-   `(cfw:face-toolbar ((,class (:foreground nil :background nil))))
    `(cfw:face-toolbar-button-off ((,class (:foreground ,macos6 :weight bold))))
    `(cfw:face-toolbar-button-on ((,class (:foreground ,purple :weight bold))))
 
@@ -879,7 +878,6 @@ Sourced other themes to get information about font faces for packages.")
 
 ;;;; doom-modeline - dark
    `(doom-modeline-bar ((,class (:foreground ,magenta))))
-   `(doom-modeline-bar-inactive ((,class (:background nil))))
    `(doom-modeline-buffer-major-mode ((,class (:foreground ,magenta))))
    `(doom-modeline-buffer-path ((,class (:foreground ,magenta))))
    `(doom-modeline-eldoc-bar ((,class (:background ,green))))
@@ -983,13 +981,13 @@ Sourced other themes to get information about font faces for packages.")
    `(evil-search-highlight-persist-highlight-face ((,class (:background ,darkblue  :foreground ,macos8 :distant-foreground ,macos0 :weight bold))))
 
 ;;;; evil-googles - dark
-   `(evil-goggles-default-face ((,class (:background ,grey :foreground nil :distant-foreground ,bg :extend t))))
+   `(evil-goggles-default-face ((,class (:background ,grey :distant-foreground ,bg :extend t))))
 
 ;;;; evil-mc - dark
    `(evil-mc-cursor-bar-face ((,class (:height 1 :background ,teal :foreground ,macos0))))
    `(evil-mc-cursor-default-face ((,class (:background ,teal :foreground ,macos0 :inverse-video nil))))
    `(evil-mc-cursor-hbar-face ((,class (:underline (:color ,blue)))))
-   `(evil-mc-region-face ((,class (:background ,grey :foreground nil :distant-foreground ,bg :extend t))))
+   `(evil-mc-region-face ((,class (:background ,grey :distant-foreground ,bg :extend t))))
 
 ;;;; evil-snipe - dark
    `(evil-snipe-first-match-face ((,class (:foreground ,red :background ,darkblue :weight bold))))
@@ -1117,7 +1115,7 @@ Sourced other themes to get information about font faces for packages.")
 
 ;;;; goggles - dark
    `(goggles-added ((,class (:background ,green))))
-   `(goggles-changed ((,class (:background ,grey :foreground nil :distant-foreground ,bg :extend t))))
+   `(goggles-changed ((,class (:background ,grey :distant-foreground ,bg :extend t))))
    `(goggles-removed ((,class (:background ,red :extend t))))
 
 ;;;; header-line - dark
@@ -1203,7 +1201,7 @@ Sourced other themes to get information about font faces for packages.")
 
 ;;;; iedit - dark
    `(iedit-occurrence ((,class (:foreground ,teal :weight bold :inverse-video t))))
-   `(iedit-read-only-occurrence ((,class (:background ,grey :foreground nil :distant-foreground ,bg :extend t))))
+   `(iedit-read-only-occurrence ((,class (:background ,grey :distant-foreground ,bg :extend t))))
 
 
 ;;;; imenu-list - dark
@@ -1226,7 +1224,7 @@ Sourced other themes to get information about font faces for packages.")
    `(ivy-current-match ((,class (:background ,grey :distant-foreground nil :extend t))))
    `(ivy-highlight-face ((,class (:foreground ,magenta))))
    `(ivy-match-required-face ((,class (:foreground ,red))))
-   `(ivy-minibuffer-match-face-1 ((,class (:background nil :foreground ,blue :weight bold :underline t))))
+   `(ivy-minibuffer-match-face-1 ((,class (:foreground ,blue :weight bold :underline t))))
    `(ivy-minibuffer-match-face-2 ((,class (:foreground ,teal :background ,macos1 :weight semi-bold))))
    `(ivy-minibuffer-match-face-3 ((,class (:foreground ,green :weight semi-bold))))
    `(ivy-minibuffer-match-face-4 ((,class (:foreground ,yellow :weight semi-bold))))
@@ -1447,7 +1445,6 @@ Sourced other themes to get information about font faces for packages.")
    `(mmm-code-submode-face ((,class (:background ,bg-other))))
    `(mmm-comment-submode-face ((,class (:background ,purple))))
    `(mmm-declaration-submode-face ((,class (:background ,darkblue))))
-   `(mmm-default-submode-face ((,class (:background nil))))
    `(mmm-init-submode-face ((,class (:background ,red))))
    `(mmm-output-submode-face ((,class (:background ,magenta))))
    `(mmm-special-submode-face ((,class (:background ,green))))
@@ -1520,7 +1517,7 @@ Sourced other themes to get information about font faces for packages.")
    `(nlinum-relative-current-face ((,class (:background ,macos2 :foreground ,fg))))
 
 ;;;; notmuch - dark
-   `(notmuch-message-summary-face ((,class (:foreground ,grey :background nil))))
+   `(notmuch-message-summary-face ((,class (:foreground ,grey))))
    `(notmuch-search-count ((,class (:foreground ,macos5))))
    `(notmuch-search-date ((,class (:foreground ,blue))))
    `(notmuch-search-flagged-face ((,class (:foreground ,red))))
@@ -2116,7 +2113,7 @@ Sourced other themes to get information about font faces for packages.")
    `(match ((,class (:foreground ,green :background ,macos0 :weight bold))))
    `(minibuffer-prompt ((,class (:foreground ,darkblue))))
    `(nobreak-space ((,class (:background ,bg :foreground ,fg))))
-   `(region ((,class (:background ,macos2 :foreground nil :distant-foreground ,bg :extend t))))
+   `(region ((,class (:background ,macos2 :distant-foreground ,bg :extend t))))
    `(secondary-selection ((,class (:background ,grey :extend t))))
    `(shadow ((,class (:foreground ,macos5))))
    `(success ((,class (:foreground ,green))))
@@ -2305,15 +2302,14 @@ Sourced other themes to get information about font faces for packages.")
    `(cfw:face-disable ((,class (:foreground ,grey))))
    `(cfw:face-grid ((,class (:foreground ,bg))))
    `(cfw:face-header ((,class (:foreground ,purple :weight bold))))
-   `(cfw:face-holiday ((,class (:foreground nil :background ,bg-other :weight bold))))
+   `(cfw:face-holiday ((,class (:background ,bg-other :weight bold))))
    `(cfw:face-periods ((,class (:foreground ,yellow))))
    `(cfw:face-saturday ((,class (:foreground ,red :weight bold))))
    `(cfw:face-select ((,class (:background ,grey))))
    `(cfw:face-sunday ((,class (:foreground ,red :weight bold))))
    `(cfw:face-title ((,class (:foreground ,purple :weight bold :height 2.0))))
-   `(cfw:face-today ((,class (:foreground nil :background nil :weight bold))))
+   `(cfw:face-today ((,class (:weight bold))))
    `(cfw:face-today-title ((,class (:foreground ,bg :background ,purple :weight bold))))
-   `(cfw:face-toolbar ((,class (:foreground nil :background nil))))
    `(cfw:face-toolbar-button-off ((,class (:foreground ,macos6 :weight bold))))
    `(cfw:face-toolbar-button-on ((,class (:foreground ,purple :weight bold))))
 
@@ -2529,7 +2525,6 @@ Sourced other themes to get information about font faces for packages.")
 
 ;;;; doom-modeline - light
    `(doom-modeline-bar ((,class (:foreground ,magenta))))
-   `(doom-modeline-bar-inactive ((,class (:background nil))))
    `(doom-modeline-buffer-major-mode ((,class (:foreground ,magenta))))
    `(doom-modeline-buffer-path ((,class (:foreground ,magenta))))
    `(doom-modeline-eldoc-bar ((,class (:background ,green))))
@@ -2633,13 +2628,13 @@ Sourced other themes to get information about font faces for packages.")
    `(evil-search-highlight-persist-highlight-face ((,class (:background ,darkblue  :foreground ,macos8 :distant-foreground ,macos0 :weight bold))))
 
 ;;;; evil-googles - light
-   `(evil-goggles-default-face ((,class (:background ,grey :foreground nil :distant-foreground ,bg :extend t))))
+   `(evil-goggles-default-face ((,class (:background ,grey :distant-foreground ,bg :extend t))))
 
 ;;;; evil-mc - light
    `(evil-mc-cursor-bar-face ((,class (:height 1 :background ,teal :foreground ,macos0))))
    `(evil-mc-cursor-default-face ((,class (:background ,teal :foreground ,macos0 :inverse-video nil))))
    `(evil-mc-cursor-hbar-face ((,class (:underline (:color ,blue)))))
-   `(evil-mc-region-face ((,class (:background ,grey :foreground nil :distant-foreground ,bg :extend t))))
+   `(evil-mc-region-face ((,class (:background ,grey :distant-foreground ,bg :extend t))))
 
 ;;;; evil-snipe - light
    `(evil-snipe-first-match-face ((,class (:foreground ,red :background ,darkblue :weight bold))))
@@ -2767,7 +2762,7 @@ Sourced other themes to get information about font faces for packages.")
 
 ;;;; goggles - light
    `(goggles-added ((,class (:background ,green))))
-   `(goggles-changed ((,class (:background ,grey :foreground nil :distant-foreground ,bg :extend t))))
+   `(goggles-changed ((,class (:background ,grey :distant-foreground ,bg :extend t))))
    `(goggles-removed ((,class (:background ,red :extend t))))
 
 ;;;; header-line - light
@@ -2853,7 +2848,7 @@ Sourced other themes to get information about font faces for packages.")
 
 ;;;; iedit - light
    `(iedit-occurrence ((,class (:foreground ,teal :weight bold :inverse-video t))))
-   `(iedit-read-only-occurrence ((,class (:background ,grey :foreground nil :distant-foreground ,bg :extend t))))
+   `(iedit-read-only-occurrence ((,class (:background ,grey :distant-foreground ,bg :extend t))))
 
 
 ;;;; imenu-list - light
@@ -2876,7 +2871,7 @@ Sourced other themes to get information about font faces for packages.")
    `(ivy-current-match ((,class (:background ,grey :distant-foreground nil :extend t))))
    `(ivy-highlight-face ((,class (:foreground ,magenta))))
    `(ivy-match-required-face ((,class (:foreground ,red))))
-   `(ivy-minibuffer-match-face-1 ((,class (:background nil :foreground ,blue :weight bold :underline t))))
+   `(ivy-minibuffer-match-face-1 ((,class (:foreground ,blue :weight bold :underline t))))
    `(ivy-minibuffer-match-face-2 ((,class (:foreground ,teal :background ,macos1 :weight semi-bold))))
    `(ivy-minibuffer-match-face-3 ((,class (:foreground ,green :weight semi-bold))))
    `(ivy-minibuffer-match-face-4 ((,class (:foreground ,yellow :weight semi-bold))))
@@ -3097,7 +3092,6 @@ Sourced other themes to get information about font faces for packages.")
    `(mmm-code-submode-face ((,class (:background ,bg-other))))
    `(mmm-comment-submode-face ((,class (:background ,purple))))
    `(mmm-declaration-submode-face ((,class (:background ,darkblue))))
-   `(mmm-default-submode-face ((,class (:background nil))))
    `(mmm-init-submode-face ((,class (:background ,red))))
    `(mmm-output-submode-face ((,class (:background ,magenta))))
    `(mmm-special-submode-face ((,class (:background ,green))))
@@ -3170,7 +3164,7 @@ Sourced other themes to get information about font faces for packages.")
    `(nlinum-relative-current-face ((,class (:background ,macos2 :foreground ,fg))))
 
 ;;;; notmuch - light
-   `(notmuch-message-summary-face ((,class (:foreground ,grey :background nil))))
+   `(notmuch-message-summary-face ((,class (:foreground ,grey))))
    `(notmuch-search-count ((,class (:foreground ,macos5))))
    `(notmuch-search-date ((,class (:foreground ,blue))))
    `(notmuch-search-flagged-face ((,class (:foreground ,red))))
