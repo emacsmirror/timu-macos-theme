@@ -908,6 +908,9 @@ Sourced other themes to get information about font faces for packages.")
      `(ediff-odd-diff-B ((,class (:background ,bg-other :extend t))))
      `(ediff-odd-diff-C ((,class (:background ,bg-other :extend t))))
 
+;;;; eldoc - dark
+     `(eldoc-highlight-function-argument ((,class (:foreground ,magenta :weight bold ))))
+
 ;;;; elfeed - dark
      `(elfeed-log-debug-level-face ((,class (:foreground ,macos5))))
      `(elfeed-log-error-level-face ((,class (:foreground ,red))))
@@ -2555,6 +2558,9 @@ Sourced other themes to get information about font faces for packages.")
      `(ediff-odd-diff-A ((,class (:background ,bg-other :extend t))))
      `(ediff-odd-diff-B ((,class (:background ,bg-other :extend t))))
      `(ediff-odd-diff-C ((,class (:background ,bg-other :extend t))))
+
+;;;; eldoc - light
+     `(eldoc-highlight-function-argument ((,class (:foreground ,magenta :weight bold ))))
 
 ;;;; elfeed - light
      `(elfeed-log-debug-level-face ((,class (:foreground ,macos5))))
