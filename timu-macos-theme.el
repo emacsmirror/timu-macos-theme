@@ -6,7 +6,7 @@
 ;; Maintainer: Aimé Bertrand <aime.bertrand@macowners.club>
 ;; Created: 2023-01-03
 ;; Keywords: faces themes
-;; Version: 1.2
+;; Version: 1.3
 ;; Package-Requires: ((emacs "27.1"))
 ;; Homepage: https://gitlab.com/aimebertrand/timu-macos-theme
 
@@ -117,11 +117,22 @@
 ;;       (customize-set-variable 'timu-macos-muted-colors t)
 ;;
 ;;   E. Border for the `mode-line'
-;;     You can set a variable to add a border to the `mode-line'.
+;;     You can set a variable to set the border type for the `mode-line'.
+;;     Either no border, just on the top or all around.
 ;;
 ;;     By default the border is turned off.
-;;     To turn this on add the following to your =~/.emacs.d/init.el= or =~/.emacs=:
-;;       (customize-set-variable 'timu-macos-mode-line-border t)
+;;     For your preferred type add one of the following to your
+;;     =~/.emacs.d/init.el= or =~/.emacs=:
+;;       (customize-set-variable 'timu-macos-mode-line-border-type "none")
+;;       (customize-set-variable 'timu-macos-mode-line-border-type "border")
+;;       (customize-set-variable 'timu-macos-mode-line-border-type "overline")
+;;
+;;   F. Background color for the `mode-line'
+;;     You can set a variable to set a background for the `mode-line'.
+;;
+;;     By default the background color for the background turned on.
+;;     To turn this off add the following to your =~/.emacs.d/init.el= or =~/.emacs=:
+;;       (customize-set-variable 'timu-macos-mode-line-background nil)
 ;;
 ;; III. Utility functions
 ;;   A. Toggle dark and light flavour of the theme
@@ -130,8 +141,11 @@
 ;;   B. Toggle between intense and non intense colors for `org-mode'
 ;;       M-x timu-macos-toggle-org-colors-intensity RET.
 ;;
-;;   C. Toggle between borders and no borders for the `mode-line'
+;;   C. Toggle between border types for the `mode-line'
 ;;       M-x timu-macos-toggle-mode-line-border RET.
+;;
+;;   D. Toggle between background and no background for the `mode-line'
+;;       M-x timu-macos-toggle-mode-line-background RET.
 
 
 ;;; Code:
@@ -326,23 +340,49 @@ BACKGROUND-COLOR changes the `background' color."
   :type 'boolean
   :group 'timu-macos-theme)
 
-(defcustom timu-macos-mode-line-border nil
+(defcustom timu-macos-mode-line-border-type "none"
   "Variable to control the border of `mode-line'.
-With a value of t the mode-line has a border."
+With the default value of \"none\" the mode-line has no border.
+With a value of \"border\" the mode-line has a border.
+With a value of \"overline\" the mode-line has just a border at the top."
+  :type 'string
+  :group 'timu-macos-theme)
+
+(defun timu-macos-mode-line-active-border (color)
+  "Function adding a border to the `mode-line' of the active window.
+COLOR supplies the border color."
+  (pcase timu-macos-mode-line-border-type
+    ("" nil)
+    ("border" (list :box color))
+    ("overline" (list :overline color))))
+
+(defun timu-macos-mode-line-inactive-border (color)
+  "Function adding a border to the `mode-line' of the inactive window.
+COLOR supplies the border color."
+  (pcase timu-macos-mode-line-border-type
+    ("none" nil)
+    ("border" (list :box color))
+    ("overline" (list :overline color))))
+
+(defcustom timu-macos-mode-line-background t
+  "Variable to control the border of `mode-line'.
+With the default value of \"none\" the mode-line has no border.
+With a value of \"border\" the mode-line has a border.
+With a value of \"overline\" the mode-line has just a border at the top."
   :type 'boolean
   :group 'timu-macos-theme)
 
-(defun timu-macos-set-mode-line-active-border (boxcolor)
+(defun timu-macos-mode-line-active-background (color)
   "Function adding a border to the `mode-line' of the active window.
-BOXCOLOR supplies the border color."
-  (if (eq t timu-macos-mode-line-border)
-      (list :box boxcolor)))
+COLOR supplies the border color."
+  (if timu-macos-mode-line-background
+      (list :background color)))
 
-(defun timu-macos-set-mode-line-inactive-border (boxcolor)
+(defun timu-macos-mode-line-inactive-background (color)
   "Function adding a border to the `mode-line' of the inactive window.
-BOXCOLOR supplies the border color."
-  (if (eq t timu-macos-mode-line-border)
-      (list :box boxcolor)))
+COLOR supplies the border color."
+  (if timu-macos-mode-line-background
+      (list :background color)))
 
 ;;;###autoload
 (defun timu-macos-toggle-dark-light ()
@@ -375,13 +415,24 @@ Customize `timu-macos-muted-colors' the to achieve this."
 
 ;;;###autoload
 (defun timu-macos-toggle-mode-line-border ()
-  "Toggle between borders and no borders for the `mode-line'.
-Customize `timu-macos-mode-line-border' the to achieve this."
+  "Toggle between border types for the `mode-line'.
+Customize `timu-macos-mode-line-border-type' the to achieve this."
   (interactive)
-  (if timu-macos-mode-line-border
-      (customize-set-variable 'timu-macos-mode-line-border nil)
-    (customize-set-variable 'timu-macos-mode-line-border t))
+  (customize-set-variable 'timu-macos-mode-line-border-type
+                          (completing-read "Mode line border: "
+                                           '("none" "border" "overline")))
   (load-theme (car custom-enabled-themes) t))
+
+;;;###autoload
+(defun timu-macos-toggle-mode-line-background ()
+  "Toggle between background and no background for the `mode-line'.
+Customize `timu-macos-mode-line-background' the to achieve this."
+  (interactive)
+  (if timu-macos-mode-line-background
+      (customize-set-variable 'timu-macos-mode-line-background nil)
+    (customize-set-variable 'timu-macos-mode-line-background t))
+  (load-theme (car custom-enabled-themes) t))
+
 
 (deftheme timu-macos
   "Color theme with cyan as a dominant color.
@@ -1453,11 +1504,11 @@ Sourced other themes to get information about font faces for packages.")
      `(mmm-special-submode-face ((,class (:background ,green))))
 
 ;;;; mode-line - dark
-     `(mode-line ((,class (,@(timu-macos-set-mode-line-active-border blue) :background ,bg-org :foreground ,fg :distant-foreground ,bg))))
+     `(mode-line ((,class (,@(timu-macos-mode-line-active-border blue) ,@(timu-macos-mode-line-active-background bg-org) :foreground ,fg :distant-foreground ,bg))))
      `(mode-line-buffer-id ((,class (:weight bold))))
      `(mode-line-emphasis ((,class (:foreground ,magenta :weight bold :underline ,darkcyan))))
      `(mode-line-highlight ((,class (:foreground ,magenta :weight bold :underline ,darkcyan))))
-     `(mode-line-inactive ((,class (,@(timu-macos-set-mode-line-inactive-border macos4) :background ,bg-org :foreground ,macos4 :distant-foreground ,macos4))))
+     `(mode-line-inactive ((,class (,@(timu-macos-mode-line-inactive-border macos4) ,@(timu-macos-mode-line-inactive-background bg-org) :foreground ,macos4 :distant-foreground ,macos4))))
 
 ;;;; mu4e - dark
      `(mu4e-forwarded-face ((,class (:foreground ,purple))))
@@ -3114,11 +3165,11 @@ Sourced other themes to get information about font faces for packages.")
      `(mmm-special-submode-face ((,class (:background ,green))))
 
 ;;;; mode-line - light
-     `(mode-line ((,class (,@(timu-macos-set-mode-line-active-border blue) :background ,bg-other :foreground ,fg :distant-foreground ,bg))))
+     `(mode-line ((,class (,@(timu-macos-mode-line-active-border blue) ,@(timu-macos-mode-line-active-background bg-other) :foreground ,fg :distant-foreground ,bg))))
      `(mode-line-buffer-id ((,class (:weight bold))))
      `(mode-line-emphasis ((,class (:foreground ,magenta :weight bold :underline ,darkcyan))))
      `(mode-line-highlight ((,class (:foreground ,magenta :weight bold :underline ,darkcyan))))
-     `(mode-line-inactive ((,class (,@(timu-macos-set-mode-line-inactive-border macos4) :background ,bg-other :foreground ,macos4 :distant-foreground ,macos4))))
+     `(mode-line-inactive ((,class (,@(timu-macos-mode-line-inactive-border macos4) ,@(timu-macos-mode-line-inactive-background bg-other) :foreground ,macos4 :distant-foreground ,macos4))))
 
 ;;;; mu4e - light
      `(mu4e-forwarded-face ((,class (:foreground ,purple))))
