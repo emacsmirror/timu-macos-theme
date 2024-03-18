@@ -435,7 +435,7 @@ Customize `timu-macos-mode-line-background' the to achieve this."
 
 
 (deftheme timu-macos
-  "Color theme with cyan as a dominant color.
+  "Color theme inspired by the macOS UI.
 Sourced other themes to get information about font faces for packages.")
 
 ;;; DARK FLAVOUR
