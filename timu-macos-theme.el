@@ -1080,8 +1080,12 @@ Sourced other themes to get information about font faces for packages.")
      `(flyspell-incorrect ((,class (:underline (:style wave :color ,red)))))
 
 ;;;; forge - dark
-     `(forge-topic-closed ((,class (:foreground ,macos5 :strike-through t))))
+     `(forge-topic-closed ((,class (:foreground ,macos3 :strike-through t))))
      `(forge-topic-label ((,class (:box nil))))
+     `(forge-issue-completed ((,class (:foreground ,macos3 :strike-through t))))
+     `(forge-pullreq-merged ((,class (:foreground ,purple))))
+     `(forge-pullreq-open ((,class (:foreground ,green))))
+     `(forge-pullreq-rejected ((,class (:foreground ,red :strike-through t))))
 
 ;;;; git-commit - dark
      `(git-commit-comment-branch-local ((,class (:foreground ,teal))))
@@ -2741,8 +2745,12 @@ Sourced other themes to get information about font faces for packages.")
      `(flyspell-incorrect ((,class (:underline (:style wave :color ,red)))))
 
 ;;;; forge - light
-     `(forge-topic-closed ((,class (:foreground ,macos5 :strike-through t))))
+     `(forge-topic-closed ((,class (:foreground ,macos2 :strike-through t))))
      `(forge-topic-label ((,class (:box nil))))
+     `(forge-issue-completed ((,class (:foreground ,macos2 :strike-through t))))
+     `(forge-pullreq-merged ((,class (:foreground ,purple))))
+     `(forge-pullreq-open ((,class (:foreground ,green))))
+     `(forge-pullreq-rejected ((,class (:foreground ,red :strike-through t))))
 
 ;;;; git-commit - light
      `(git-commit-comment-branch-local ((,class (:foreground ,teal))))
