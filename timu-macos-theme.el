@@ -6,7 +6,7 @@
 ;; Maintainer: Aimé Bertrand <aime.bertrand@macowners.club>
 ;; Created: 2023-01-03
 ;; Keywords: faces themes
-;; Version: 1.4
+;; Version: 1.5
 ;; Package-Requires: ((emacs "27.1"))
 ;; Homepage: https://gitlab.com/aimebertrand/timu-macos-theme
 
@@ -109,12 +109,15 @@
 ;;     To turn this on add the following to your =~/.emacs.d/init.el= or =~/.emacs=:
 ;;       (customize-set-variable 'timu-macos-org-intense-colors t)
 ;;
-;;   D. Muted colors for the theme
-;;     You can set muted colors for the dark flavour of the theme.
+;;   D. Color contrast for the theme
+;;     You can set the color contras for the dark flavour of the theme.
 ;;
-;;     By default muted colors are turned off.
-;;     To turn this on add the following to your =~/.emacs.d/init.el= or =~/.emacs=:
-;;       (customize-set-variable 'timu-macos-muted-colors t)
+;;     By default the color contrast is set to `normal'.
+;;     To set the desired contrast add one of the following to your
+;;     `~/.emacs.d/init.el' or `~/.emacs':
+;;       (customize-set-variable 'timu-macos-colors-contrast 'normal)
+;;       (customize-set-variable 'timu-macos-colors-contrast 'muted)
+;;       (customize-set-variable 'timu-macos-colors-contrast 'contrasted)
 ;;
 ;;   E. Border for the `mode-line'
 ;;     You can set a variable to set the border type for the `mode-line'.
@@ -141,10 +144,13 @@
 ;;   B. Toggle between intense and non intense colors for `org-mode'
 ;;       M-x timu-macos-toggle-org-colors-intensity RET.
 ;;
-;;   C. Toggle between border types for the `mode-line'
+;;   C. Toggle between the 3 different colors contrasts
+;;       M-x timu-macos-toggle-color-contrast RET.
+;;
+;;   D. Toggle between border types for the `mode-line'
 ;;       M-x timu-macos-toggle-mode-line-border RET.
 ;;
-;;   D. Toggle between background and no background for the `mode-line'
+;;   E. Toggle between background and no background for the `mode-line'
 ;;       M-x timu-macos-toggle-mode-line-background RET.
 
 
@@ -335,9 +341,11 @@ BACKGROUND-COLOR changes the `background' color."
   (if (eq t timu-macos-org-intense-colors)
       (list :overline overline-color :background background-color)))
 
-(defcustom timu-macos-muted-colors nil
-  "Variable to set muted colors for the theme."
-  :type 'boolean
+(defcustom timu-macos-colors-contrast 'normal
+  "Variable to set the contrast of the colors for the theme."
+  :type '(choice (const :tag "Default colors" normal)
+                 (const :tag "Muted colors" muted)
+                 (const :tag "More contrast colors" contrasted))
   :group 'timu-macos-theme)
 
 (defcustom timu-macos-mode-line-border-type "none"
@@ -404,14 +412,22 @@ Customize `timu-macos-org-intense-colors' the to achieve this."
   (load-theme (car custom-enabled-themes) t))
 
 ;;;###autoload
-(defun timu-macos-toggle-muted-colors ()
-  "Toggle between muted and unmuted colors.
-Customize `timu-macos-muted-colors' the to achieve this."
+(defun timu-macos-toggle-color-contrast ()
+  "Toggle between muted, contrasted and normal colors.
+Customize `timu-macos-colors-contrast' the to achieve this."
   (interactive)
-  (if timu-macos-muted-colors
-      (customize-set-variable 'timu-macos-muted-colors nil)
-    (customize-set-variable 'timu-macos-muted-colors t))
-  (load-theme (car custom-enabled-themes) t))
+  (let ((contrast (completing-read "Chose the contrast level: "
+                                   '(normal muted contrasted))))
+    (pcase contrast
+      ("normal"
+       (setq timu-macos-colors-contrast 'normal)
+       (load-theme (car custom-enabled-themes) t))
+      ("muted"
+       (setq timu-macos-colors-contrast 'muted)
+       (load-theme (car custom-enabled-themes) t))
+      ("contrasted"
+       (setq timu-macos-colors-contrast 'contrasted)
+       (load-theme (car custom-enabled-themes) t)))))
 
 ;;;###autoload
 (defun timu-macos-toggle-mode-line-border ()
@@ -441,38 +457,38 @@ Sourced other themes to get information about font faces for packages.")
 ;;; DARK FLAVOUR
 (when (equal timu-macos-flavour "dark")
   (let ((class '((class color) (min-colors 89)))
-        (bg        (if timu-macos-muted-colors "#222327" "#222327"))
-        (bg-org    (if timu-macos-muted-colors "#202125" "#202125"))
-        (bg-other  (if timu-macos-muted-colors "#2a2a2a" "#2a2a2a"))
-        (macos0    (if timu-macos-muted-colors "#2c2c2c" "#2c2c2c"))
-        (macos1    (if timu-macos-muted-colors "#393939" "#393939"))
-        (macos2    (if timu-macos-muted-colors "#616161" "#616161"))
-        (macos3    (if timu-macos-muted-colors "#5e5e5e" "#5e5e5e"))
-        (macos4    (if timu-macos-muted-colors "#8c8c8c" "#8c8c8c"))
-        (macos5    (if timu-macos-muted-colors "#b3b3b3" "#b3b3b3"))
-        (macos6    (if timu-macos-muted-colors "#b3b3b3" "#b3b3b3"))
-        (macos7    (if timu-macos-muted-colors "#e8e8e8" "#e8e8e8"))
-        (macos8    (if timu-macos-muted-colors "#f4f4f4" "#f4f4f4"))
-        (fg        (if timu-macos-muted-colors "#ffffff" "#ffffff"))
-        (fg-other  (if timu-macos-muted-colors "#dedede" "#dedede"))
+        (bg        (pcase timu-macos-colors-contrast ('muted "#222327") ('contrasted "#0e0e0e") ('normal "#222327")))
+        (bg-org    (pcase timu-macos-colors-contrast ('muted "#202125") ('contrasted "#090909") ('normal "#202125")))
+        (bg-other  (pcase timu-macos-colors-contrast ('muted "#2a2a2a") ('contrasted "#111111") ('normal "#2a2a2a")))
+        (macos0    (pcase timu-macos-colors-contrast ('muted "#2c2c2c") ('contrasted "#121212") ('normal "#2c2c2c")))
+        (macos1    (pcase timu-macos-colors-contrast ('muted "#393939") ('contrasted "#171717") ('normal "#393939")))
+        (macos2    (pcase timu-macos-colors-contrast ('muted "#616161") ('contrasted "#616161") ('normal "#616161")))
+        (macos3    (pcase timu-macos-colors-contrast ('muted "#5e5e5e") ('contrasted "#5e5e5e") ('normal "#5e5e5e")))
+        (macos4    (pcase timu-macos-colors-contrast ('muted "#8c8c8c") ('contrasted "#8c8c8c") ('normal "#8c8c8c")))
+        (macos5    (pcase timu-macos-colors-contrast ('muted "#b3b3b3") ('contrasted "#b3b3b3") ('normal "#b3b3b3")))
+        (macos6    (pcase timu-macos-colors-contrast ('muted "#b3b3b3") ('contrasted "#b3b3b3") ('normal "#b3b3b3")))
+        (macos7    (pcase timu-macos-colors-contrast ('muted "#e8e8e8") ('contrasted "#e8e8e8") ('normal "#e8e8e8")))
+        (macos8    (pcase timu-macos-colors-contrast ('muted "#f4f4f4") ('contrasted "#f4f4f4") ('normal "#f4f4f4")))
+        (fg        (pcase timu-macos-colors-contrast ('muted "#ffffff") ('contrasted "#ffffff") ('normal "#ffffff")))
+        (fg-other  (pcase timu-macos-colors-contrast ('muted "#dedede") ('contrasted "#dedede") ('normal "#dedede")))
 
-        (grey      (if timu-macos-muted-colors "#d2d2d2" "#8c8c8c"))
-        (red       (if timu-macos-muted-colors "#ffa596" "#ff6e64"))
-        (darkred   (if timu-macos-muted-colors "#ff8478" "#cc5850"))
-        (orange    (if timu-macos-muted-colors "#ffd760" "#ffb350"))
-        (green     (if timu-macos-muted-colors "#9fffac" "#6ae073"))
-        (blue      (if timu-macos-muted-colors "#75ecff" "#4e9dff"))
-        (magenta   (if timu-macos-muted-colors "#ffb8ff" "#e45c9c"))
-        (teal      (if timu-macos-muted-colors "#d7ffff" "#91f3e7"))
-        (yellow    (if timu-macos-muted-colors "#ffff82" "#ffde57"))
-        (darkblue  (if timu-macos-muted-colors "#7abeff" "#009dff"))
-        (purple    (if timu-macos-muted-colors "#e19ae9" "#cd7bf6"))
-        (cyan      (if timu-macos-muted-colors "#00ffff" "#00d1e9"))
-        (lightcyan (if timu-macos-muted-colors "#ceffff" "#88c0d0"))
-        (darkcyan  (if timu-macos-muted-colors "#98ddeb" "#5297a5"))
+        (grey      (pcase timu-macos-colors-contrast ('muted "#d2d2d2") ('contrasted "#8c8c8c") ('normal "#8c8c8c")))
+        (red       (pcase timu-macos-colors-contrast ('muted "#ffa596") ('contrasted "#ff5258") ('normal "#ff6e65")))
+        (darkred   (pcase timu-macos-colors-contrast ('muted "#ff8478") ('contrasted "#cc5850") ('normal "#cc5850")))
+        (orange    (pcase timu-macos-colors-contrast ('muted "#ffd760") ('contrasted "#f7821b") ('normal "#ffb352")))
+        (green     (pcase timu-macos-colors-contrast ('muted "#9fffac") ('contrasted "#62ba47") ('normal "#6adf73")))
+        (blue      (pcase timu-macos-colors-contrast ('muted "#75ecff") ('contrasted "#007aff") ('normal "#4e9dff")))
+        (magenta   (pcase timu-macos-colors-contrast ('muted "#ffb8ff") ('contrasted "#f84f9e") ('normal "#e45c9c")))
+        (teal      (pcase timu-macos-colors-contrast ('muted "#d7ffff") ('contrasted "#91f3e7") ('normal "#91f3e7")))
+        (yellow    (pcase timu-macos-colors-contrast ('muted "#ffff82") ('contrasted "#ffc600") ('normal "#ffde58")))
+        (darkblue  (pcase timu-macos-colors-contrast ('muted "#7abeff") ('contrasted "#009dff") ('normal "#009dff")))
+        (purple    (pcase timu-macos-colors-contrast ('muted "#e19ae9") ('contrasted "#a550a6") ('normal "#cd7bf6")))
+        (cyan      (pcase timu-macos-colors-contrast ('muted "#00ffff") ('contrasted "#00d1e9") ('normal "#00d1e9")))
+        (lightcyan (pcase timu-macos-colors-contrast ('muted "#ceffff") ('contrasted "#88c0d0") ('normal "#88c0d0")))
+        (darkcyan  (pcase timu-macos-colors-contrast ('muted "#98ddeb") ('contrasted "#5297a5") ('normal "#5297a5")))
 
-        (black     (if timu-macos-muted-colors "#000000" "#000000"))
-        (white     (if timu-macos-muted-colors "#ffffff" "#ffffff")))
+        (black     (pcase timu-macos-colors-contrast ('muted "#000000") ('contrasted "#000000") ('normal "#000000")))
+        (white     (pcase timu-macos-colors-contrast ('muted "#ffffff") ('contrasted "#ffffff") ('normal "#ffffff"))))
 
     (custom-theme-set-faces
      'timu-macos
@@ -2144,16 +2160,16 @@ Sourced other themes to get information about font faces for packages.")
         (fg-other  "#2a2a2a")
 
         (grey      "#8c8c8c")
-        (red       "#ff6e64")
+        (red       "#ff675d")
         (darkred   "#cc5850")
-        (orange    "#ffb350")
-        (green     "#6ae073")
-        (blue      "#4e9dff")
+        (orange    "#ffaa4f")
+        (green     "#64d86b")
+        (blue      "#4a95ff")
         (magenta   "#e45c9c")
         (teal      "#91f3e7")
-        (yellow    "#ffde57")
+        (yellow    "#ffd654")
         (darkblue  "#009dff")
-        (purple    "#cd7bf6")
+        (purple    "#bf76e4")
         (cyan      "#00d1e9")
         (lightcyan "#88c0d0")
         (darkcyan  "#5297a5")

@@ -94,15 +94,17 @@ By default the intense colors are turned off. To turn this on add the following 
   (customize-set-variable 'timu-macos-org-intense-colors t)
 #+end_src
 
-** Muted colors for the theme
-You can set muted colors for the dark flavour of the theme.
+** Color contrast for the theme
+You can set the color contras for the dark flavour of the theme.
 
 #+html: <p align="center"><img src="img/timu-macos-muted.png" width="100%"/></p>
 
-By default muted colors are turned off. To turn this on add the following to your =~/.emacs.d/init.el= or =~/.emacs=:
+By default the color contrast is set to =normal=. To set the desired contrast add one of the following to your =~/.emacs.d/init.el= or =~/.emacs=:
 
 #+begin_src emacs-lisp
-  (customize-set-variable 'timu-macos-muted-colors t)
+  (customize-set-variable 'timu-macos-colors-contrast 'normal)
+  (customize-set-variable 'timu-macos-colors-contrast 'muted)
+  (customize-set-variable 'timu-macos-colors-contrast 'contrasted)
 #+end_src
 
 ** Border for the mode-line
@@ -133,6 +135,10 @@ M-x =timu-macos-toggle-dark-light= RET.
 ** Toggle between intense and non intense colors for `org-mode'
 
 M-x =timu-macos-toggle-org-colors-intensity= RET.
+
+** Toggle between the 3 different colors contrasts
+
+M-x =timu-macos-toggle-color-contrast= RET.
 
 ** Toggle between border types for the `mode-line'
 
