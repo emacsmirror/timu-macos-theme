@@ -4,7 +4,7 @@
 #+LANGUAGE: en
 #+OPTIONS: d:t toc:nil num:nil
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="https://macowners.club/css/gtd.css" />
-#+KEYWORDS: theme rouge red dark
+#+KEYWORDS: emacs theme macos dark
 #+STARTUP: indent showall
 
 
