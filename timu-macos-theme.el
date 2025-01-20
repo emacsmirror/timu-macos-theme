@@ -1057,6 +1057,9 @@ Sourced other themes to get information about font faces for packages.")
 
 ;;;; flycheck - dark
      `(flycheck-error ((,class (:underline (:style wave :color ,red)))))
+     `(flycheck-error-list-filename ((,class (:foreground ,blue))))
+     `(flycheck-error-list-checker-name ((,class (:foreground ,magenta))))
+     `(flycheck-error-list-warning ((,class (:foreground ,yellow))))
      `(flycheck-fringe-error ((,class (:foreground ,red))))
      `(flycheck-fringe-info ((,class (:foreground ,green))))
      `(flycheck-fringe-warning ((,class (:foreground ,yellow))))
@@ -1064,11 +1067,11 @@ Sourced other themes to get information about font faces for packages.")
      `(flycheck-warning ((,class (:underline (:style wave :color ,yellow)))))
 
 ;;;; flycheck-posframe - dark
-     `(flycheck-posframe-background-face ((,class (:background ,bg-other))))
-     `(flycheck-posframe-error-face ((,class (:foreground ,red))))
-     `(flycheck-posframe-face ((,class (:background ,bg :foreground ,fg))))
-     `(flycheck-posframe-info-face ((,class (:background ,bg :foreground ,fg))))
-     `(flycheck-posframe-warning-face ((,class (:foreground ,yellow))))
+     `(flycheck-posframe-background-face ((,class (:background ,bg-org))))
+     `(flycheck-posframe-error-face ((,class (:background ,bg-org :foreground ,red))))
+     `(flycheck-posframe-face ((,class (:background ,bg-org :foreground ,fg))))
+     `(flycheck-posframe-info-face ((,class (:background ,bg-org :foreground ,green))))
+     `(flycheck-posframe-warning-face ((,class (:background ,bg-org :foreground ,yellow))))
 
 ;;;; flymake - dark
      `(flymake-error ((,class (:underline (:style wave :color ,red)))))
@@ -2741,18 +2744,21 @@ Sourced other themes to get information about font faces for packages.")
 
 ;;;; flycheck - light
      `(flycheck-error ((,class (:underline (:style wave :color ,red)))))
+     `(flycheck-error-list-filename ((,class (:foreground ,blue))))
+     `(flycheck-error-list-checker-name ((,class (:foreground ,magenta))))
+     `(flycheck-error-list-warning ((,class (:foreground ,orange))))
      `(flycheck-fringe-error ((,class (:foreground ,red))))
      `(flycheck-fringe-info ((,class (:foreground ,green))))
-     `(flycheck-fringe-warning ((,class (:foreground ,yellow))))
+     `(flycheck-fringe-warning ((,class (:foreground ,orange))))
      `(flycheck-info ((,class (:underline (:style wave :color ,green)))))
-     `(flycheck-warning ((,class (:underline (:style wave :color ,yellow)))))
+     `(flycheck-warning ((,class (:underline (:style wave :color ,orange)))))
 
 ;;;; flycheck-posframe - light
-     `(flycheck-posframe-background-face ((,class (:background ,bg-other))))
-     `(flycheck-posframe-error-face ((,class (:foreground ,red))))
-     `(flycheck-posframe-face ((,class (:background ,bg :foreground ,fg))))
-     `(flycheck-posframe-info-face ((,class (:background ,bg :foreground ,fg))))
-     `(flycheck-posframe-warning-face ((,class (:foreground ,yellow))))
+     `(flycheck-posframe-background-face ((,class (:background ,bg-org))))
+     `(flycheck-posframe-error-face ((,class (:background ,bg-org :foreground ,red))))
+     `(flycheck-posframe-face ((,class (:background ,bg-org :foreground ,fg))))
+     `(flycheck-posframe-info-face ((,class (:background ,bg-org :foreground ,green))))
+     `(flycheck-posframe-warning-face ((,class (:background ,bg-org :foreground ,orange))))
 
 ;;;; flymake - light
      `(flymake-error ((,class (:underline (:style wave :color ,red)))))
