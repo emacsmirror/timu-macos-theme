@@ -9,6 +9,9 @@
 
 All notable changes to the "timu-macos-theme" package will be documented in this file.
 
+* 2025-03-06 - [version 1.6]
+- Add color contrast support for light flavour
+
 * 2025-01-20 - [version 1.5]
 - Add more color contrast options
   - timu-macos-muted-colors removed - default value is =nil=

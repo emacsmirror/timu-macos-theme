@@ -102,9 +102,9 @@ You can set the color contras for the dark flavour of the theme.
 By default the color contrast is set to =normal=. To set the desired contrast add one of the following to your =~/.emacs.d/init.el= or =~/.emacs=:
 
 #+begin_src emacs-lisp
-  (customize-set-variable 'timu-macos-colors-contrast 'normal)
-  (customize-set-variable 'timu-macos-colors-contrast 'muted)
-  (customize-set-variable 'timu-macos-colors-contrast 'contrasted)
+  (customize-set-variable 'timu-macos-color-contrast 'normal)
+  (customize-set-variable 'timu-macos-color-contrast 'muted)
+  (customize-set-variable 'timu-macos-color-contrast 'contrasted)
 #+end_src
 
 ** Border for the mode-line
