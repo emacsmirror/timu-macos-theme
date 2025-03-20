@@ -543,7 +543,7 @@ Sourced other themes to get information about font faces for packages.")
      `(warning ((,class (:foreground ,yellow))))
 
 ;;;; font-lock - dark
-     `(font-lock-builtin-face ((,class (:foreground ,blue))))
+     `(font-lock-builtin-face ((,class (:foreground ,lightcyan))))
      `(font-lock-comment-delimiter-face ((,class (:foreground ,macos4))))
      `(font-lock-comment-face ((,class (:foreground ,macos4 :slant italic))))
      `(font-lock-constant-face ((,class (:foreground ,red))))
@@ -821,14 +821,14 @@ Sourced other themes to get information about font faces for packages.")
      `(custom-invalid ((,class (:foreground ,red))))
      `(custom-link ((,class (:foreground ,cyan :underline t))))
      `(custom-modified ((,class (:foreground ,purple))))
-     `(custom-rogue ((,class (:foreground ,purple :box (:line-width 3 :style none)))))
+     `(custom-rogue ((,class (:foreground ,purple :box (:line-width 3)))))
      `(custom-saved ((,class (:foreground ,green :weight bold))))
      `(custom-set ((,class (:foreground ,yellow :background ,bg))))
      `(custom-state ((,class (:foreground ,green))))
      `(custom-themed ((,class (:foreground ,yellow :background ,bg))))
      `(custom-variable-button ((,class (:foreground ,green :underline t))))
      `(custom-variable-obsolete ((,class (:foreground ,grey :background ,bg))))
-     `(custom-variable-tag ((,class (:foreground ,darkcyan :underline t :extend nil))))
+     `(custom-variable-tag ((,class (:foreground ,darkcyan :underline t :extend unspecified))))
      `(custom-visibility ((,class (:foreground ,yellow :height 0.8 :underline t))))
 
 ;;;; diff
@@ -1055,7 +1055,7 @@ Sourced other themes to get information about font faces for packages.")
 
 ;;;; evil-mc - dark
      `(evil-mc-cursor-bar-face ((,class (:height 1 :background ,teal :foreground ,macos0))))
-     `(evil-mc-cursor-default-face ((,class (:background ,teal :foreground ,macos0 :inverse-video nil))))
+     `(evil-mc-cursor-default-face ((,class (:background ,teal :foreground ,macos0 :inverse-video unspecified))))
      `(evil-mc-cursor-hbar-face ((,class (:underline (:color ,blue)))))
      `(evil-mc-region-face ((,class (:background ,grey :distant-foreground ,bg :extend t))))
 
@@ -1069,7 +1069,7 @@ Sourced other themes to get information about font faces for packages.")
      `(expenses-face-message ((,class (:foreground ,blue :weight bold))))
 
 ;;;; flx-ido - dark
-     `(flx-highlight-face ((,class (:weight bold :foreground ,yellow :underline nil))))
+     `(flx-highlight-face ((,class (:weight bold :foreground ,yellow :underline unspecified))))
 
 ;;;; flycheck - dark
      `(flycheck-error ((,class (:underline (:style wave :color ,red)))))
@@ -1100,7 +1100,7 @@ Sourced other themes to get information about font faces for packages.")
 
 ;;;; forge - dark
      `(forge-topic-closed ((,class (:foreground ,macos3 :strike-through t))))
-     `(forge-topic-label ((,class (:box nil))))
+     `(forge-topic-label ((,class (:box unspecified))))
      `(forge-issue-completed ((,class (:foreground ,macos3 :strike-through t))))
      `(forge-pullreq-merged ((,class (:foreground ,purple))))
      `(forge-pullreq-open ((,class (:foreground ,green))))
@@ -1260,7 +1260,7 @@ Sourced other themes to get information about font faces for packages.")
      `(hl-todo ((,class (:foreground ,red :weight bold))))
 
 ;;;; hlinum - dark
-     `(linum-highlight-face ((,class (:foreground ,fg :distant-foreground nil :weight normal))))
+     `(linum-highlight-face ((,class (:foreground ,fg :distant-foreground unspecified :weight normal))))
 
 ;;;; hydra - dark
      `(hydra-face-amaranth ((,class (:foreground ,teal :weight bold))))
@@ -1298,7 +1298,7 @@ Sourced other themes to get information about font faces for packages.")
 
 ;;;; ivy - dark
      `(ivy-confirm-face ((,class (:foreground ,green))))
-     `(ivy-current-match ((,class (:background ,grey :distant-foreground nil :extend t))))
+     `(ivy-current-match ((,class (:background ,grey :distant-foreground unspecified :extend t))))
      `(ivy-highlight-face ((,class (:foreground ,magenta))))
      `(ivy-match-required-face ((,class (:foreground ,red))))
      `(ivy-minibuffer-match-face-1 ((,class (:foreground ,blue :weight bold :underline t))))
@@ -1568,9 +1568,9 @@ Sourced other themes to get information about font faces for packages.")
      `(mu4e-column-faces-to-from ((,class (:foreground ,blue))))
 
 ;;;; mu4e-thread-folding - dark
-     `(mu4e-thread-folding-child-face ((,class (:extend t :background ,bg-org :underline nil))))
-     `(mu4e-thread-folding-root-folded-face ((,class (:extend t :background ,bg-other :overline nil :underline nil))))
-     `(mu4e-thread-folding-root-unfolded-face ((,class (:extend t :background ,bg-other :overline nil :underline nil))))
+     `(mu4e-thread-folding-child-face ((,class (:extend t :background ,bg-org :underline unspecified))))
+     `(mu4e-thread-folding-root-folded-face ((,class (:extend t :background ,bg-other :overline unspecified :underline unspecified))))
+     `(mu4e-thread-folding-root-unfolded-face ((,class (:extend t :background ,bg-other :overline unspecified :underline unspecified))))
 
 ;;;; multiple - dark cursors
      `(mc/cursor-face ((,class (:background ,cyan))))
@@ -1832,7 +1832,7 @@ Sourced other themes to get information about font faces for packages.")
      `(rst-level-6 ((,class (:foreground ,magenta :weight bold))))
 
 ;;;; selectrum - dark
-     `(selectrum-current-candidate ((,class (:background ,grey :distant-foreground nil :extend t))))
+     `(selectrum-current-candidate ((,class (:background ,grey :distant-foreground unspecified :extend t))))
 
 ;;;; sh-script - dark
      `(sh-heredoc ((,class (:foreground ,blue))))
@@ -2108,7 +2108,7 @@ Sourced other themes to get information about font faces for packages.")
      `(widget-button ((,class (:foreground ,fg :weight bold))))
      `(widget-button-pressed ((,class (:foreground ,red))))
      `(widget-documentation ((,class (:foreground ,green))))
-     `(widget-field ((,class (:foreground ,fg :background ,macos0 :extend nil))))
+     `(widget-field ((,class (:foreground ,fg :background ,macos0 :extend unspecified))))
      `(widget-inactive ((,class (:foreground ,grey :background ,bg-other))))
      `(widget-single-line-field ((,class (:foreground ,fg :background ,macos0))))
 
@@ -2230,7 +2230,7 @@ Sourced other themes to get information about font faces for packages.")
      `(warning ((,class (:foreground ,yellow))))
 
 ;;;; font-lock - light
-     `(font-lock-builtin-face ((,class (:foreground ,blue))))
+     `(font-lock-builtin-face ((,class (:foreground ,darkcyan))))
      `(font-lock-comment-delimiter-face ((,class (:foreground ,macos4))))
      `(font-lock-comment-face ((,class (:foreground ,macos4 :slant italic))))
      `(font-lock-constant-face ((,class (:foreground ,red))))
@@ -2508,14 +2508,14 @@ Sourced other themes to get information about font faces for packages.")
      `(custom-invalid ((,class (:foreground ,red))))
      `(custom-link ((,class (:foreground ,cyan :underline t))))
      `(custom-modified ((,class (:foreground ,purple))))
-     `(custom-rogue ((,class (:foreground ,purple :box (:line-width 3 :style none)))))
+     `(custom-rogue ((,class (:foreground ,purple :box (:line-width 3)))))
      `(custom-saved ((,class (:foreground ,green :weight bold))))
      `(custom-set ((,class (:foreground ,yellow :background ,bg))))
      `(custom-state ((,class (:foreground ,green))))
      `(custom-themed ((,class (:foreground ,yellow :background ,bg))))
      `(custom-variable-button ((,class (:foreground ,green :underline t))))
      `(custom-variable-obsolete ((,class (:foreground ,grey :background ,bg))))
-     `(custom-variable-tag ((,class (:foreground ,darkcyan :underline t :extend nil))))
+     `(custom-variable-tag ((,class (:foreground ,darkcyan :underline t :extend unspecified))))
      `(custom-visibility ((,class (:foreground ,yellow :height 0.8 :underline t))))
 
 ;;;; diff
@@ -2742,7 +2742,7 @@ Sourced other themes to get information about font faces for packages.")
 
 ;;;; evil-mc - light
      `(evil-mc-cursor-bar-face ((,class (:height 1 :background ,teal :foreground ,macos0))))
-     `(evil-mc-cursor-default-face ((,class (:background ,teal :foreground ,macos0 :inverse-video nil))))
+     `(evil-mc-cursor-default-face ((,class (:background ,teal :foreground ,macos0 :inverse-video unspecified))))
      `(evil-mc-cursor-hbar-face ((,class (:underline (:color ,blue)))))
      `(evil-mc-region-face ((,class (:background ,grey :distant-foreground ,bg :extend t))))
 
@@ -2756,7 +2756,7 @@ Sourced other themes to get information about font faces for packages.")
      `(expenses-face-message ((,class (:foreground ,blue :weight bold))))
 
 ;;;; flx-ido - light
-     `(flx-highlight-face ((,class (:weight bold :foreground ,yellow :underline nil))))
+     `(flx-highlight-face ((,class (:weight bold :foreground ,yellow :underline unspecified))))
 
 ;;;; flycheck - light
      `(flycheck-error ((,class (:underline (:style wave :color ,red)))))
@@ -2787,7 +2787,7 @@ Sourced other themes to get information about font faces for packages.")
 
 ;;;; forge - light
      `(forge-topic-closed ((,class (:foreground ,macos2 :strike-through t))))
-     `(forge-topic-label ((,class (:box nil))))
+     `(forge-topic-label ((,class (:box unspecified))))
      `(forge-issue-completed ((,class (:foreground ,macos2 :strike-through t))))
      `(forge-pullreq-merged ((,class (:foreground ,purple))))
      `(forge-pullreq-open ((,class (:foreground ,green))))
@@ -2947,7 +2947,7 @@ Sourced other themes to get information about font faces for packages.")
      `(hl-todo ((,class (:foreground ,red :weight bold))))
 
 ;;;; hlinum - light
-     `(linum-highlight-face ((,class (:foreground ,fg :distant-foreground nil :weight normal))))
+     `(linum-highlight-face ((,class (:foreground ,fg :distant-foreground unspecified :weight normal))))
 
 ;;;; hydra - light
      `(hydra-face-amaranth ((,class (:foreground ,teal :weight bold))))
@@ -2985,7 +2985,7 @@ Sourced other themes to get information about font faces for packages.")
 
 ;;;; ivy - light
      `(ivy-confirm-face ((,class (:foreground ,green))))
-     `(ivy-current-match ((,class (:background ,grey :distant-foreground nil :extend t))))
+     `(ivy-current-match ((,class (:background ,grey :distant-foreground unspecified :extend t))))
      `(ivy-highlight-face ((,class (:foreground ,magenta))))
      `(ivy-match-required-face ((,class (:foreground ,red))))
      `(ivy-minibuffer-match-face-1 ((,class (:foreground ,blue :weight bold :underline t))))
@@ -3255,9 +3255,9 @@ Sourced other themes to get information about font faces for packages.")
      `(mu4e-column-faces-to-from ((,class (:foreground ,blue))))
 
 ;;;; mu4e-thread-folding - light
-     `(mu4e-thread-folding-child-face ((,class (:extend t :background ,bg-org :underline nil))))
-     `(mu4e-thread-folding-root-folded-face ((,class (:extend t :background ,bg-other :overline nil :underline nil))))
-     `(mu4e-thread-folding-root-unfolded-face ((,class (:extend t :background ,bg-other :overline nil :underline nil))))
+     `(mu4e-thread-folding-child-face ((,class (:extend t :background ,bg-org :underline unspecified))))
+     `(mu4e-thread-folding-root-folded-face ((,class (:extend t :background ,bg-other :overline unspecified :underline unspecified))))
+     `(mu4e-thread-folding-root-unfolded-face ((,class (:extend t :background ,bg-other :overline unspecified :underline unspecified))))
 
 ;;;; multiple - light cursors
      `(mc/cursor-face ((,class (:background ,cyan))))
@@ -3519,7 +3519,7 @@ Sourced other themes to get information about font faces for packages.")
      `(rst-level-6 ((,class (:foreground ,magenta :weight bold))))
 
 ;;;; selectrum - light
-     `(selectrum-current-candidate ((,class (:background ,grey :distant-foreground nil :extend t))))
+     `(selectrum-current-candidate ((,class (:background ,grey :distant-foreground unspecified :extend t))))
 
 ;;;; sh-script - light
      `(sh-heredoc ((,class (:foreground ,blue))))
@@ -3795,7 +3795,7 @@ Sourced other themes to get information about font faces for packages.")
      `(widget-button ((,class (:foreground ,fg :weight bold))))
      `(widget-button-pressed ((,class (:foreground ,red))))
      `(widget-documentation ((,class (:foreground ,green))))
-     `(widget-field ((,class (:foreground ,fg :background ,macos0 :extend nil))))
+     `(widget-field ((,class (:foreground ,fg :background ,macos0 :extend unspecified))))
      `(widget-inactive ((,class (:foreground ,grey :background ,bg-other))))
      `(widget-single-line-field ((,class (:foreground ,fg :background ,macos0))))
 
