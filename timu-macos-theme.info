@@ -1,6 +1,11 @@
 This is timu-macos-theme.info, produced by makeinfo version 7.2 from
 timu-macos-theme.texi.
 
+INFO-DIR-SECTION Emacs
+START-INFO-DIR-ENTRY
+* Timu macOS Theme: (timu-macos-theme).     Color theme inspired by the macOS UI.
+END-INFO-DIR-ENTRY
+
 
 File: timu-macos-theme.info,  Node: Top,  Next: Installation,  Up: (dir)
 
