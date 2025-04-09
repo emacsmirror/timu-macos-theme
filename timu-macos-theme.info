@@ -1,0 +1,244 @@
+This is timu-macos-theme.info, produced by makeinfo version 7.2 from
+timu-macos-theme.texi.
+
+
+File: timu-macos-theme.info,  Node: Top,  Next: Installation,  Up: (dir)
+
+Timu macOS Theme
+****************
+
+Color theme inspired by the macOS UI.
+
+
+Copyright (C) 2022 Aimé Bertrand <aime.bertrand@macowners.club>
+
+    Permission is hereby granted, free of charge, to any person obtaining a
+    copy of this software and associated documentation files (the "Software"),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the
+    Software is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.  IN NO EVENT SHALL
+    THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE SOFTWARE.
+
+   • Homepage: <https://macowners.club/posts/custom-emacs-themes>.
+   • Git repo: <https://gitlab.com/aimebertrand/timu-macos-theme>.
+
+* Menu:
+
+* Installation::
+* Configuration::
+* Utility functions::
+* Supported major modes::
+
+
+File: timu-macos-theme.info,  Node: Installation,  Next: Configuration,  Prev: Top,  Up: Top
+
+1 Installation
+**************
+
+Manual installation
+-------------------
+
+1. Download the ‘timu-macos-theme.el’ file from the Git repoand add it to your
+   ‘custom-load-path’.
+2. In your ‘~/.emacs.d/init.el’ or ‘~/.emacs’:
+
+    (load-theme 'timu-macos t)
+
+From Melpa
+----------
+
+1. ‘M-x package-install RET timu-macos-theme RET’.
+2. In your ‘~/.emacs.d/init.el’ or ‘~/.emacs’:
+
+    (load-theme 'timu-macos t)
+
+With ‘use-package’
+------------------
+
+    (use-package timu-macos-theme
+      :ensure t
+      :config
+      (load-theme 'timu-macos t))
+
+
+File: timu-macos-theme.info,  Node: Configuration,  Next: Utility functions,  Prev: Installation,  Up: Top
+
+2 Configuration
+***************
+
+Dark and light fravour
+----------------------
+
+By default the theme is ‘dark’.  To setup the ‘light’ flavour add the following
+to your ‘~/.emacs.d/init.el’ or ‘~/.emacs’:
+
+    (customize-set-variable 'timu-macos-flavour "light")
+
+Scaling
+-------
+
+You can now scale some faces (in ‘org-mode’ for now):
+
+   • ‘org-document-info’
+   • ‘org-document-title’
+   • ‘org-level-1’
+   • ‘org-level-2’
+   • ‘org-level-3’
+
+More to follow in the future.
+
+By default the scaling is turned off.  To setup the scaling add the following
+to your ‘~/.emacs.d/init.el’ or ‘~/.emacs’:
+
+Default scaling
+
+   This will turn on default values of scaling in the theme.
+
+    (customize-set-variable 'timu-macos-scale-org-document-title t)
+    (customize-set-variable 'timu-macos-scale-org-document-info t)
+    (customize-set-variable 'timu-macos-scale-org-level-1 t)
+    (customize-set-variable 'timu-macos-scale-org-level-2 t)
+    (customize-set-variable 'timu-macos-scale-org-level-3 t)
+
+Custom scaling
+
+   You can choose your own scaling values as well.  The following is a
+   somewhat exaggerated example.
+
+    (customize-set-variable 'timu-macos-scale-org-document-title 1.8)
+    (customize-set-variable 'timu-macos-scale-org-document-info 1.4)
+    (customize-set-variable 'timu-macos-scale-org-level-1 1.8)
+    (customize-set-variable 'timu-macos-scale-org-level-2 1.4)
+    (customize-set-variable 'timu-macos-scale-org-level-3 1.2)
+
+"Intense" colors for org-mode
+-----------------------------
+
+To emphasize some elements in org-mode.  You can set a variable to make some
+faces more "intense".
+
+By default the intense colors are turned off.  To turn this on add the
+following to your ‘~/.emacs.d/init.el’ or ‘~/.emacs’:
+
+    (customize-set-variable 'timu-macos-org-intense-colors t)
+
+Color contrast for the theme
+----------------------------
+
+You can set the color contras for the dark flavour of the theme.
+
+By default the color contrast is set to ‘normal’.  To set the desired contrast
+add one of the following to your ‘~/.emacs.d/init.el’ or ‘~/.emacs’:
+
+    (customize-set-variable 'timu-macos-color-contrast 'normal)
+    (customize-set-variable 'timu-macos-color-contrast 'muted)
+    (customize-set-variable 'timu-macos-color-contrast 'contrasted)
+
+Border for the mode-line
+------------------------
+
+You can set a variable to set the border type for the mode-line.  Either no
+border, just on the top or all around.
+
+By default the border is turned off.  For your preferred type add one of the
+following to your ‘~/.emacs.d/init.el’ or ‘~/.emacs’:
+
+    (customize-set-variable 'timu-macos-mode-line-border-type "none")
+    (customize-set-variable 'timu-macos-mode-line-border-type "border")
+    (customize-set-variable 'timu-macos-mode-line-border-type "overline")
+
+Background color for the 'mode-line'
+------------------------------------
+
+You can set a variable to set a background for the 'mode-line'.
+
+By default the background color for the background turned on.  To turn this off
+add the following to your ‘~/.emacs.d/init.el’ or ‘~/.emacs’:
+
+    (customize-set-variable 'timu-macos-mode-line-background nil)
+
+
+File: timu-macos-theme.info,  Node: Utility functions,  Next: Supported major modes,  Prev: Configuration,  Up: Top
+
+3 Utility functions
+*******************
+
+Toggle dark and light flavour of the theme
+
+    M-x ‘timu-macos-toggle-dark-light’ RET.
+
+Toggle between intense and non intense colors for 'org-mode'
+
+    M-x ‘timu-macos-toggle-org-colors-intensity’ RET.
+
+Toggle between the 3 different colors contrasts
+
+    M-x ‘timu-macos-toggle-color-contrast’ RET.
+
+Toggle between border types for the 'mode-line'
+
+    M-x ‘timu-macos-toggle-mode-line-border’ RET.
+
+Toggle between background and no background for the 'mode-line'
+
+    M-x ‘timu-macos-toggle-mode-line-background’ RET.
+
+
+File: timu-macos-theme.info,  Node: Supported major modes,  Prev: Utility functions,  Up: Top
+
+4 Supported major modes
+***********************
+
+ace-window, alert, all-the-icons, all-the-icons-dired, all-the-icons-ivy-rich,
+annotate, ansi, anzu, auctex, avy, bookmark+, calfw, centaur-tabs, circe,
+column-enforce-mode, company, company-box, compilation, consult, corfu,
+counsel, cperl, custom, diff, diff-hl, dired, dired-async, dired-filetype-face,
+dired+, dired-k, dired-subtree, diredfl, doom-modeline, ediff, eldoc, elfeed,
+elixir-mode, elscreen, enh-ruby-mode, erc, eshell, evil, evil-googles, evil-mc,
+evil-snipe, expenses, flx-ido, flycheck, flycheck-posframe, flymake, flyspell,
+forge, git-commit, git-gutter, git-gutter+, git-gutter-fringe, gnus, goggles,
+header-line, helm, helpful, hi-lock, highlight-indentation-mode,
+highlight-numbers-mode, highlight-quoted-mode, highlight-symbol,
+highlight-thing, hl-fill-column-face, hl-line (built-in), hl-todo, hlinum,
+hydra, ido, iedit, imenu-list, indent-guide, isearch, ivy, ivy-posframe,
+jabber, jdee, js2-mode, keycast, ledger-mode, line numbers, linum,
+linum-relative, lsp-mode, lui, magit, make-mode, marginalia, markdown-mode,
+message, mic-paren, minimap, mmm-mode, mode-line, mu4e, mu4e-column-faces,
+mu4e-thread-folding, multiple cursors, nano-modeline, nav-flash, neotree,
+nlinum, nlinum-hl, nlinum-relative, notmuch, orderless, objed, org-agenda,
+org-habit, org-journal, org-mode, org-pomodoro, org-ref, outline,
+outline-minor-faces, parenface, parinfer, persp-mode, perspective,
+pkgbuild-mode, popup, powerline, rainbow-delimiters, re-builder, rjsx-mode,
+rpm-spec-mode, rst, selectrum, sh-script, show-paren, smart-mode-line,
+smartparens, smerge-tool, solaire-mode, spaceline, stripe-buffer, swiper,
+tabbar, tab-bar, tab-line, telephone-line, term, tldr, transient, treemacs,
+treemacs-all-the-icons, tree-sitter-hl, typescript-mode, undo-tree,
+vimish-fold, volatile-highlights, vterm, web-mode, wgrep, which-func,
+which-key, whitespace, widget, window-divider, woman, workgroups2, yasnippet,
+ytel
+
+
+Tag table:
+Node: Top96
+Node: Installation1625
+Node: Configuration2267
+Node: Utility functions5509
+Node: Supported major modes6193
+
+End tag table
+
+
+Local Variables:
+coding: utf-8
+End:
