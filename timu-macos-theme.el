@@ -786,6 +786,13 @@ Sourced other themes to get information about font faces for packages.")
 
 ;;;; consult - dark
      `(consult-file ((,class (:foreground ,blue))))
+     `(consult-separator ((,class (:foreground ,macos4))))
+
+;;;; consult-notes - dark
+     `(consult-notes-dir ((,class (:foreground ,blue))))
+     `(consult-notes-size ((,class (:foreground ,magenta))))
+     `(consult-notes-name ((,class (:foreground ,purple))))
+     `(consult-notes-time ((,class (:foreground ,blue))))
 
 ;;;; corfu - dark
      `(corfu-bar ((,class (:background ,bg-org :foreground ,fg))))
@@ -2478,6 +2485,13 @@ Sourced other themes to get information about font faces for packages.")
 
 ;;;; consult - light
      `(consult-file ((,class (:foreground ,blue))))
+     `(consult-separator ((,class (:foreground ,macos4))))
+
+;;;; consult-notes - light
+     `(consult-notes-dir ((,class (:foreground ,blue))))
+     `(consult-notes-size ((,class (:foreground ,magenta))))
+     `(consult-notes-name ((,class (:foreground ,purple))))
+     `(consult-notes-time ((,class (:foreground ,blue))))
 
 ;;;; corfu - light
      `(corfu-bar ((,class (:background ,bg-org :foreground ,fg))))
